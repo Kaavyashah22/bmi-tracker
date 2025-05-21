@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <button id="toggleDarkMode">🌗 Dark Mode</button>
+    <button id="logoutBtn" class="hidden">Logout</button>
+
+    <div class="container">
+        <h1>BMI Tracker</h1>
+
+        <div class="input-section">
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" placeholder="e.g., 175" required>
+
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" placeholder="e.g., 70" required>
+
+            <button id="calculateBtn">Calculate BMI</button>
+            <p class="error-message"></p>
+        </div>
+
+        <section id="result-section" class="hidden">
+            <h2>Your BMI: <span id="bmiValue">--</span></h2>
+            <p>Category: <span id="bmiCategory">--</span></p>
+
+            <div class="progress-container">
+                <label>BMI Health Progress</label>
+                <div class="progress-bar">
+                    <div id="progressFill"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tip-section" class="hidden">
+            <h2>Health Tip</h2>
+            <p id="healthTip">Calculate your BMI to get a personalized health tip!</p>
+            <button id="newTipBtn">New Tip</button>
+        </section>
+
+        <section id="workout-section" class="hidden">
+            <h2>Workout Suggestions</h2>
+            <ul id="workoutList">
+                <li>Calculate your BMI to get workout suggestions.</li>
+            </ul>
+        </section>
+
+        <section id="history-section" class="hidden">
+            <h2>Your BMI History</h2>
+            <ul id="bmiHistoryList">
+                <li>No BMI entries yet.</li>
+            </ul>
+            <canvas id="bmiChart"></canvas>
+        </section>
+
+        <section id="streak-section" class="hidden">
+            <h2>🔥 Streak</h2>
+            <p>You're on a <span id="streakCount">0</span>-day streak!</p>
+        </section>
+    </div>
+
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <h2 id="authTitle">Login</h2>
+            <input type="text" id="usernameInput" placeholder="Username" required>
+            <input type="password" id="passwordInput" placeholder="Password" required>
+            <button id="authSubmitBtn">Login</button>
+            <p id="authMessage" class="error"></p>
+            <p id="authToggleBtn">Don't have an account? <button type="button" class="link-button">Sign Up</button></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
